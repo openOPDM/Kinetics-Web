@@ -4,9 +4,11 @@ var fs = require('fs'),
 	AdmZip = require('adm-zip'),
 	requirejs = require('requirejs'),
 	source = __dirname + '/../Web',
-	tmp = __dirname + '/../tmp/Web',
+	tmpRoot = __dirname + '/../tmp',
+	tmp = tmpRoot + '/Web',
 	sourceLanding = __dirname + '/../Landing',
-	tmpLanding = __dirname + '/../tmp/Landing',
+	tmpLanding = tmpRoot + '/Landing',
+	buildDir = __dirname + '/../build',
 	version,
 	files,
 	i, j,
@@ -23,11 +25,13 @@ var fs = require('fs'),
 cli.main(function (args, options) {
 	"use strict";
 
-	if (fs.existsSync(tmp)) {
-		wrench.rmdirSyncRecursive(tmp);
+	if (fs.existsSync(tmpRoot)) {
+		wrench.rmdirSyncRecursive(tmpRoot);
 	}
-	if (fs.existsSync(tmpLanding)) {
-		wrench.rmdirSyncRecursive(tmpLanding);
+	fs.mkdirSync(tmpRoot);
+
+	if (!fs.existsSync(buildDir)) {
+		fs.mkdirSync(buildDir);
 	}
 
 	getVersion();
@@ -135,12 +139,12 @@ cli.main(function (args, options) {
 
 	function packageFiles(dir, name) {
 		var zip = new AdmZip();
-		if (!fs.existsSync(__dirname + '/../build/' + version)) {
-			fs.mkdirSync(__dirname + '/../build/' + version);
+		if (!fs.existsSync(buildDir + '/' + version)) {
+			fs.mkdirSync(buildDir + '/' + version);
 		}
 		process.chdir(dir);
 		zip.addLocalFolder('.');
-		zip.writeZip(__dirname + '/../build/' + version + '/' + name + (options.suffix ? '-' + options.suffix : '') + '.war');
+		zip.writeZip(buildDir + '/' + version + '/' + name + (options.suffix ? '-' + options.suffix : '') + '.war');
 	}
 
 	console.log('Version: ' + version);
