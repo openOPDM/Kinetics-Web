@@ -1,0 +1,19 @@
+<div class="result-row">
+	<div data-field-id="<%= id %>" class="result-col label-id editable-label-id" title="Click to Edit">
+		<%= name %>
+	</div>
+	<div class="result-col type-id"><%= type %></div>
+<div data-field-id="<%= id %>" class="result-col options-id editable-options-id" title="Click to edit">
+<% _.each(list, function(item, index, list) { %>
+<%= item %>
+<% if (index != list.length - 1) { %>
+<%= delimiter %>
+<% } }) %>
+</div>
+	<div class="result-col required-id">
+		<input type="checkbox" class="required-checkbox" data-field-id="<%= id %>" <%= required ? 'checked' : '' %> >
+	</div>
+	<div class="result-col remove-custom-field">
+		<button data-field-id="<%= id %>" class="button button-detail id-button-detail" title=" Click to remove custom field from all existing and future <%= Constants.customLabel('projects') %>">REMOVE</button>
+	</div>
+</div>

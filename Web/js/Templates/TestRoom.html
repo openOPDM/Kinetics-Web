@@ -1,0 +1,71 @@
+<div class="user-container"></div>
+
+<div class="content-container test-room id-header-container">
+	<% if (analystMode && ownRoom) { %>
+	<h1>ANALYST'S TEST ROOM</h1>
+	<% } else {%>
+	<h1>
+		<% if (readOnly && models.length) { %>
+		PATIENT'S TEST ROOM: <%= models[0].get('userSecondName') %>, <%= models[0].get('userFirstName') %>
+		<% } else { %>
+		PATIENT'S TEST ROOM
+		<% } %>
+	</h1>
+	<% } %>
+
+	<% if ((analystMode && !readOnly) || ownRoom) { %>
+	<div class="buttons-container buttons-1 id-start-test-container">
+		<button class="button id-button-start-test">Start keyboard test</button>
+	</div>
+	<% } %>
+
+	<div class="description-box big-font">
+		TEST RESULTS
+	</div>
+	<% if (!readOnly) { %>
+	<button class="button button-delete id-button-delete">Delete Selected</button>
+	<% } %>
+	<% if (ownRoom) { %>
+	<% if (!_isAvanir) { %>
+	<button class="button button-detail id-button-share-all">Share all</button>
+	<% } %>
+	<% } else { %>
+	<a class="button button-trend-report id-button-trend-report<%= readOnly ? ' read-only' : '' %>">Trend report</a>
+	<% } %>
+
+</div>
+<div class="result-table<%= readOnly ? ' readOnly' : '' %>">
+	<div class="result-header-row">
+		<div class="result-row">
+			<% if (!readOnly) { %>
+			<div class="result-col test-checkbox all-check">
+				<div class="tick"></div>
+			</div>
+			<% } %>
+			<div class="result-col test-date">
+				Test Date
+			</div>
+			<div class="result-col test-taken">
+				Test Taken
+			</div>
+			<div class="result-col test-score">
+				Score
+			</div>
+			<div class="result-col empty">
+				Valid
+			</div>
+			<div class="result-col test-detail">
+			</div>
+		</div>
+	</div>
+	<div class="result-row id-no-results">
+		<p>There are no test session results</p>
+	</div>
+</div>
+<div class="share-container"></div>
+<div class="description-separator"></div>
+<div class="test-room bottom">
+	<% if (!readOnly) { %>
+	<button class="button button-delete id-button-delete">Delete Selected</button>
+	<% } %>
+</div>

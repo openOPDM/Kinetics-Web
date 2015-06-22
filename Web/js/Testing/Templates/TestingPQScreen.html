@@ -1,0 +1,25 @@
+<div class="user-container"></div>
+<div class="title">
+	<%= model.testContext.get("properties").get("name") %>
+</div>
+<div class="description-box">
+	<%= model.testContext.get("properties").get("description") %>
+</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="info">
+		<span class="remained-presses"></span> press<span class="remained-presses-plural-ends">es</span> remaining
+	</div>
+	<div class="progressbar"></div>
+	<div class="timer-seconds">
+		You spent
+            <span class="hours-counter"><span class="spent-time-hours"></span> hour<span
+					class="spent-time-hours-plural-ends">s</span></span>
+            <span class="minutes-counter"><span class="spent-time-minutes"></span> minute<span
+					class="spent-time-minutes-plural-ends">s</span></span>
+		<span class="spent-time-seconds"></span> second<span class="spent-time-seconds-plural-ends">s</span>
+	</div>
+</div>
+<div class="buttons-container buttons-1">
+    <button class="button id-button-stop button-red">Stop <i class="icon-stop"></i></button>
+</div>

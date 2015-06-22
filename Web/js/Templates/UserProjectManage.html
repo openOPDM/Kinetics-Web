@@ -1,0 +1,61 @@
+<div class="project-list-selector">
+	<span title="close" class="icon-remove id-cancel-project"></span>
+
+	<h2>
+		<strong>Manage <%= Constants.customLabel('projects') %> for user</strong><br>
+		<%= model.get('firstName') %>  <%= model.get('secondName') %>
+		<div class="overflowed"><%= model.get('email') %></div>
+	</h2>
+	<table>
+		<tr>
+			<td valign="top">
+				<label for="all_projects">Avaliable <%= Constants.customLabel('projects') %>:</label>
+				<select name="all_projects" id="all_projects" multiple="true" size="10">
+					<% var checkSample = function(sample, obj, defineKey){
+						var defineKey = defineKey || 'id';
+						for (var key in obj){
+							if (sample[defineKey] == obj[key][defineKey]){
+								return true
+							}
+						}
+						return false;
+						},
+
+					selected  = model.get('project'),
+					allProjectsModel = projectsList.models;
+
+					_.each(allProjectsModel, function(model) {
+						var project = model.attributes;
+						if (!checkSample(project, selected)){%>
+							<option value="<%= project.id %>"><%=project.name%></option>
+						<%}
+					})%>
+				</select>
+			</td>
+			<td>
+				<input type="button" value=">>" class="project-add">
+				<br>
+				<input type="button" value="<<" class="project-remove">
+			</td>
+			<td valign="top">
+				<label for="projects">Selected <%= Constants.customLabel('projects') %>:</label>
+				<select name="projects" id="projects" multiple="true" size="10">
+					<% var selected  = model.get('project');
+					_.each(selected, function(project) {%>
+						<option value="<%= project.id %>"><%=project.name%></option>
+					<%})%>
+				</select>
+			</td>
+		</tr>
+	</table>
+
+	<div class="sign-row">
+		<div class="sign-row-success id-change-project-status">
+			Status message.
+		</div>
+	</div>
+
+	<div class="btn-sign-box">
+		<button class="button button-sign-out btn-sign-in id-save-project">CHANGE</button>
+	</div>
+</div>

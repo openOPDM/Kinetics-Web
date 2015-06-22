@@ -1,0 +1,12 @@
+<div class="result-col test-taken id-name">
+	<%= model.get("firstName") %> <%= model.get("secondName") %>
+</div>
+<div class="result-col test-detail id-detail">
+	<%= model.get('birthday') ? moment().diff(model.get('birthday'), 'year') : "n/a" %>
+</div>
+<div class="result-col user-email id-email">
+	<%= model.get("email") %>
+</div>
+<div class="result-col test-detail">
+	<button class="button button-detail id-add-patient">ADD</button>
+</div>

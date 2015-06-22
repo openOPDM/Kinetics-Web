@@ -1,0 +1,74 @@
+<%
+var birthday = moment(model.get("birthday"));
+var gender = model.get("gender");
+%>
+<div class="user-container"></div>
+<div class="content-container  admin-tests">
+	<h1>User Info</h1>
+
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<%= Constants.customLabel('Name') %>
+		</div>
+		<div class="sign-row-input">
+			<%= model.get("firstName") %> <%= model.get("secondName") %>
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			Gender
+		</div>
+		<div class="sign-row-input">
+			<%= gender ? Constants.GenderCaptions[gender].toLowerCase() : "n/a" %>
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			Birthday
+		</div>
+		<div class="sign-row-input">
+			<%= birthday ? birthday.format("MM/DD/YYYY") : "n/a" %>
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			Age
+		</div>
+		<div class="sign-row-input">
+			<%= birthday ? moment().diff(birthday, 'year') : "n/a" %>
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			E-mail
+		</div>
+		<div class="sign-row-input">
+			<%= model.get("email") %>
+		</div>
+	</div>	<div class="sign-row">
+	<% if (showProjects) { %>
+		<div class="sign-row-label">
+			Assigned <%= Constants.customLabel('Projects') %>
+		</div>
+
+	<%
+		var projectsList = model.get("project") || [],
+		userProjects = [];
+		for (var key in projectsList){
+			if (typeof(analystMode)=='undefined' || !analystMode){
+				userProjects.push(projectsList[key].name);
+			} else if (projectsList[key].status == Constants.ProjectStatus.Active){
+				userProjects.push(projectsList[key].name);
+			}
+		}
+
+		var shownProjects = userProjects.length ? userProjects.slice(0,3).join(', ') : 'No assigned ' + Constants.customLabel('projects')
+	%>
+
+
+		<div class="sign-row-input" title="<%= userProjects.join(', ') %>">
+			<%= shownProjects + (userProjects.length > 3 ? '...' : '') %>
+		</div>
+	<% } %>
+	</div>
+</div>

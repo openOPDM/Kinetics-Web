@@ -1,0 +1,105 @@
+<div class="user-container"></div>
+<div class="title">
+	PLEASE SIGN UP TO KINETICS TEST LAB TO VIEW SHARED TEST ROOM
+</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="registration">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="first-name"><%= Constants.customLabel('First Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="first-name" type="text" size="24" class="id-first-name"
+					   value="<%= profile.get('firstName') %>">
+
+			</div>
+			<span class="sign-row-error id-error-first-name"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="second-name"><%= Constants.customLabel('Last Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="second-name" type="text" size="24" class="id-second-name"
+					   value="<%= profile.get('secondName') %>">
+
+			</div>
+			<span class="sign-row-error id-error-second-name"></span>
+		</div>
+
+		<div class="sign-row row-radio-group">
+			<div class="sign-row-label">
+				Gender:
+			</div>
+			<div class="sign-row-input">
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Male %>"
+							  class="id-gender-male">Male</label>
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Female %>"
+							  class="id-gender-female">Female</label>
+			</div>
+			<span class="sign-row-error id-error-gender"></span>
+		</div>
+
+		<div class="sign-row sign-row-long">
+			<div class="sign-row-label">
+				<label for="birthday">Birthday:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="birthday" type="text" maxlength="10" size="10" class="id-birthday" placeholder="MM/DD/YYYY"
+					   value="<%= profile.get('birthdayFormatted') %>">
+			</div>
+			<span class="sign-row-error id-error-birthday"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label>E-mail:</label>
+			</div>
+			<div class="sign-row-input">
+				<%= profile.get('email') %>
+			</div>
+			<span class="sign-row-error id-error-email"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="password">New password:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="password" type="password" size="24" class="id-password">
+			</div>
+		</div>
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="password-confirmation">Confirm password:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="password-confirmation" type="password" size="24" class="id-password-confirmation">
+			</div>
+			<span class="sign-row-error id-error-password"></span>
+		</div>
+
+		<div class="sign-row" id="reCaptcha">
+		</div>
+		<div class="sign-row">
+			<div class="sign-row-error id-error-captcha">
+			</div>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-error id-error-general">
+			</div>
+		</div>
+
+        <div class="description-box">
+            By signing up you agree to <a href="#info/terms-of-service">Terms of Service</a> and <a href="#info/privacy-policy">Privacy Policy</a>
+        </div>
+
+		<div class="btn-sign-box box-sign-in">
+			<button class="button button-sign-out btn-sign-in id-sign-up">SIGN UP</button>
+		</div>
+
+	</div>
+</div>

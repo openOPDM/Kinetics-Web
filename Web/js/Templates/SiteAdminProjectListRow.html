@@ -1,0 +1,16 @@
+<div class="result-col id-name <%= model.get('status') !== 'ACTIVE' ? 'disabled' : '' %>">
+	<span title="Click to edit <%= Constants.customLabel('project') %> name."><%= model.get("name") %></span>
+</div>
+
+<div class="result-col test-detail">
+	<% if (model.get('status') === 'ACTIVE') { %>
+	<button type="button" class="button button-detail id-button-disable"
+			title="Click to disable or enable <%= Constants.customLabel('project') %>. Users cannot login to disabled <%= Constants.customLabel('projects') %>. All data will be preserved.">Disable</button>
+	<% } else { %>
+	<button type="button" class="button button-detail id-button-disable"
+			title="Click to disable or enable <%= Constants.customLabel('project') %>. Users cannot login to disabled <%= Constants.customLabel('projects') %>. All data will be preserved.">Enable</button>
+	<% } %>
+</div>
+<div class="result-col test-detail <%= model.get('status') !== 'ACTIVE' ? 'disabled' : '' %>">
+	<button type="button" class="button button-detail id-button-manage" title="Click to manage users in specific <%= Constants.customLabel('project') %>.">Manage</button>
+</div>

@@ -1,0 +1,30 @@
+<div class="user-container"></div>
+<div class="title">
+	SUMMARY
+</div>
+<div class="description-box">Dexterity score: <%= (new Number(model.sessionResults.get("totalScore"))).toFixed(2) %>
+</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="notes-label">
+		Notes:
+	</div>
+	<div class="notes">
+		<textarea rows="10" cols="50" class="id-notes"><%= model.sessionResults.get("notes") %></textarea>
+	</div>
+	<div class="notes">
+		Valid:
+		<div class="result-col test-checkbox id-valid">
+			<div class="tick checked"></div>
+		</div>
+	</div>
+</div>
+<div class="buttons-container buttons-3">
+    <button class="button id-button-back"><i class="icon-step-backward"></i> Back to previous<br>test</button>
+    <% if (model.registerAfterTest){ %>
+        <button class="button id-button-register button-green">Register and<br>submit test<i class="icon-tblock icon-ok"></i></button>
+    <% } else { %>
+        <button class="button id-button-submit button-green">Submit <i class="icon-ok"></i></button>
+    <% } %>
+    <button class="button id-button-cancel button-yellow">Discard Results <i class="icon-remove"></i></button>
+</div>

@@ -1,0 +1,109 @@
+<div class="user-container"></div>
+<h1>Create user</h1>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="registration create-user">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="first-name"><%= Constants.customLabel('First Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="first-name" type="text" size="24" class="id-first-name" value="">
+			</div>
+			<span class="sign-row-error id-error-first-name"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="second-name"><%= Constants.customLabel('Last Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="second-name" type="text" size="24" class="id-second-name" value="">
+			</div>
+			<span class="sign-row-error id-error-second-name"></span>
+		</div>
+
+		<div class="sign-row row-radio-group">
+			<div class="sign-row-label">
+				Gender:
+			</div>
+			<div class="sign-row-input">
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Male %>"
+							  class="id-gender-male">Male</label>
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Female %>"
+							  class="id-gender-female">Female</label>
+			</div>
+			<span class="sign-row-error id-error-gender"></span>
+		</div>
+
+		<div class="sign-row sign-row-long">
+			<div class="sign-row-label">
+				<label for="birthday">Birthday:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="birthday" type="text" maxlength="10" size="10" class="id-birthday" placeholder="MM/DD/YYYY"
+					   value="">
+
+			</div>
+			<span class="sign-row-error id-error-birthday"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="email">E-mail:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="email" type="text" size="24" class="id-email" value="">
+			</div>
+			<span class="sign-row-error id-error-email"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="role">Role:</label>
+			</div>
+			<div class="sign-row-input">
+				<select id="role"  class="id-role">
+					<% _.each(roles, function(role) { %>
+					<option value="<%= role.toUpperCase() %>"><%= role.charAt(0).toUpperCase() + role.slice(1).replace('_', ' ') %></option>
+					<% }); %>
+				</select>
+			</div>
+		</div>
+
+		<% if (showProjectSelect) { %>
+		<div class="sign-row row-multiselect">
+			<div class="sign-row-label projects-label">
+				<label><%= Constants.customLabel('Project') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<div class="project-selection-list">
+					<label>
+						<input class="select-all" type="checkbox">
+						<div>Select all</div>
+					</label>
+					<div class="list">
+						<% _.each(projects, function(project) { %>
+						<label>
+							<input class="sign-in-project" type="checkbox" name="project" value="<%= project.get('id') %>">
+							<div><%= project.get('name') %></div>
+						</label>
+						<% }); %>
+					</div>
+				</div>
+			</div>
+			<span class="sign-row-error id-error-project"></span>
+		</div>
+		<% } %>
+		<div class="sign-row">
+			<div class="sign-row-error id-error-general">
+			</div>
+		</div>
+
+		<div class="btn-sign-box box-sign-in clearfix">
+			<button class="button button-sign-out btn-sign-in id-sign-up">CREATE</button>
+			<button class="button button-sign-out btn-sign-in id-cancel">CANCEL</button>
+		</div>
+
+	</div>
+</div>

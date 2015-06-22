@@ -1,0 +1,36 @@
+<div class="user-container"></div>
+<div class="title">
+	TEST <%= model.testContext.get("properties").get("name") %> PASSED
+</div>
+<div class="description-box">&nbsp;</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="info">
+		<%
+		var testType = model.testContext.get("properties").get("testType");
+		switch (testType) {
+		case Constants.TestType.NM: %>
+		<span class="correct-presses"></span> correct press<span class="correct-presses-plural-ends">es</span>
+		detected
+		<% break; case Constants.TestType.PQ: %>
+		You spent
+            <span class="hours-counter"><span class="spent-time-hours"></span> hour<span
+					class="spent-time-hours-plural-ends">s</span></span>
+            <span class="minutes-counter"><span class="spent-time-minutes"></span> minute<span
+					class="spent-time-minutes-plural-ends">s</span></span>
+		<span class="spent-time-seconds"></span> second<span class="spent-time-seconds-plural-ends">s</span>
+		<% break; } %>
+	</div>
+</div>
+<div class="buttons-container buttons-3">
+    <button class="button id-button-back"><i class="icon-step-backward"></i> Back to previous<br>test</button>
+
+    <button class="button id-button-next button-green">
+        <% if (model.testContext.get("lastTest")) { %>
+        Go to the<br>summary <i class="icon-tblock icon-forward"></i>
+        <% } else { %>
+        Go to the next<br>test <i class="icon-tblock icon-step-forward"></i>
+        <% } %>
+    </button>
+    <button class="button id-button-repeat button-yellow">Repeat <i class="icon-repeat"></i></button>3
+</div>

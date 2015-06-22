@@ -1,0 +1,5 @@
+<% if (selected.length > 1) { %>
+The <%= selected.length %> users will be <%= block ? "DEACTIVATED" : "ACTIVATED" %>. Are you sure?
+<% } else { %>
+The user <%= selected[0].get("firstName") %> <%= selected[0].get("secondName") %> will be <%= block ? "DEACTIVATED" : "ACTIVATED" %>. Are you sure?
+<% } %>

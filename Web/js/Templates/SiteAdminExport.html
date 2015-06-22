@@ -1,0 +1,119 @@
+<div class="user-container"></div>
+
+<div class="side-menu">
+	<ul>
+		<li><a class="export-data">Export Test Data to CSV</a></li>
+		<li><a class="analytics-reports">Analytics & reports</a></li>
+	</ul>
+</div>
+
+<div class="content-container">
+
+
+
+	<div class="export-data page-partial">
+		<h1>Export Test Data to CSV</h1>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="range-from">From:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="range-from" type="text" maxlength="10" size="10" class="id-range-from" placeholder="MM/DD/YYYY">
+			</div>
+			<span class="sign-row-error id-error-from"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="range-to">To:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="range-to" type="text" maxlength="10" size="10" class="id-range-to" placeholder="MM/DD/YYYY">
+			</div>
+			<span class="sign-row-error id-error-to"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-error id-error-general">
+			</div>
+		</div>
+
+		<div class="status">
+			<div class="stage stage1">
+				Retrieving data
+				<div class="progress"></div>
+			</div>
+			<div class="stage stage2">
+				Preparing
+				<div class="progress"></div>
+			</div>
+			<div class="stage stage3">
+				<a href="" class="button button-34" download="export\.csv">Open / Save generated file</a>
+			</div>
+
+		</div>
+
+		<div class="description-separator"></div>
+		<div class="test-room bottom">
+			<button type="button" class="button button-34 id-export">Start export</button>
+			<button type="button" class="button button-34 id-cancel">Cancel</button>
+		</div>
+	</div>
+
+	<div class="analytics-reports page-partial">
+		<h1>Analytics & reports</h1>
+
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="event-type">Event Type:</label>
+			</div>
+			<div class="sign-row-input">
+				<select id="event-type">
+					<% _.each(eventList, function (event) { %>
+					<option value="<%= event %>"><%= event.toLowerCase().replace(/_/g, ' ') %></option>
+					<% }); %>
+				</select>
+			</div>
+			<span class="sign-row-error id-event-error-event-type"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="range-from">From:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="event-range-from" type="text" maxlength="10" size="10" class="id-event-range-from" placeholder="MM/DD/YYYY">
+			</div>
+			<span class="sign-row-error id-event-error-from"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="range-to">To:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="event-range-to" type="text" maxlength="10" size="10" class="id-event-range-to" placeholder="MM/DD/YYYY">
+			</div>
+			<span class="sign-row-error id-event-error-to"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-error id-event-error-general">
+			</div>
+		</div>
+
+		<div class="description-separator"></div>
+		<div class="test-room bottom">
+			<button type="button" class="button button-34 id-show-analytics">Display</button>
+			<button type="button" class="button button-34 id-cancel">Cancel</button>
+		</div>
+
+		<div class="description-box graph-container">
+			<div class="id-trend-graph graph-placeholder"></div>
+		</div>
+
+	</div>
+
+</div>

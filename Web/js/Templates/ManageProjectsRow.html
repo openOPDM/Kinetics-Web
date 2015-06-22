@@ -1,0 +1,18 @@
+<td>
+	<%= model.get("firstName") %> <%= model.get("secondName") %>
+</td>
+<td>
+	<%= model.get("email") %>
+</td>
+<td>
+    <%= model.get("roles").length ? model.get("roles")[0].name : '' %>
+</td>
+<td>
+	<%= (Constants.UserStatusCaptions[model.get("status") || ""] || "").toUpperCase() %>
+</td>
+<td>
+	<input type="checkbox" class="id-user-assigned">
+</td>
+<td>
+	<button class="button button-detail id-button-detail">DETAIL</button>
+</td>

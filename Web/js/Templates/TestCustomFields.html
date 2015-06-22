@@ -1,0 +1,81 @@
+<div class="user-container"></div>
+<div class="questions-list">
+
+	<div class="title">
+		MANAGE CUSTOM FIELDS
+	</div>
+	<div class="description-separator"></div>
+	<div class="result-header-row">
+		<div class="result-row">
+			<div class="result-col label-id">Label</div>
+			<div class="result-col type-id">Type</div>
+			<div class="result-col options-id">Options</div>
+			<div class="result-col required-id">Required</div>
+		</div>
+	</div>
+
+	<div class="custom-fields-list">
+		<div class="fields-table"></div>
+		<div class="no-fields" style="display: none">No custom fields available</div>
+	</div>
+
+	<div class="description-separator"></div>
+
+	<div class="test-room bottom">
+		<button class="button button-34 id-add-new-question">Add a Field</button>
+	</div>
+</div>
+<div class="add-new-question-form" style="display: none">
+
+	<div class="content-container">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="question-label">Label:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="question-label" type="text" class="id-question-label"><span class="required">*</span>
+			</div>
+		</div>
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="question-type">Type:</label>
+			</div>
+			<div class="sign-row-input">
+				<select id="question-type" class="id-question-type">
+					<option value="numeric">Numeric</option>
+					<option value="text">Text</option>
+					<option value="list">List</option>
+				</select>
+			</div>
+		</div>
+		<div class="sign-row options-list-row custom-fields-options" style="display: none">
+			<div class="sign-row-label">
+				<label for="options-list">Options:</label>
+			</div>
+			<div class="custom-fields-list sign-row-input">
+				<input id="options-list" type="text" class="id-options-list"><span class="required">*</span>
+				<label for="options-list-demo">Demo: </label>
+				<select id="options-list-demo" class="id-options-list-demo">
+				</select>
+
+				<p>Enter options separated by semicolon, see the demonstration for self-check</p>
+			</div>
+		</div>
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="question-required">Required:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="question-required" type="checkbox" class="id-question-required">
+			</div>
+		</div>
+		<div class="validationErrors"></div>
+	</div>
+
+	<div class="description-separator"></div>
+
+	<div class="test-room bottom">
+		<button class="button button-34 id-save-new-question">Save Field</button>
+		<button class="button button-34 id-cancel-adding">Cancel</button>
+	</div>
+</div>

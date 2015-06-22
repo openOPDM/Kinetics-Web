@@ -1,0 +1,39 @@
+<div class="user-container"></div>
+<div class="title">
+	CONFIRM YOUR E-MAIL
+</div>
+<div class="description-separator"></div>
+<div class="content-container confirmation clearfix">
+	<div class="content-container reset-content resend-confirmation">
+		<div class="description-box big-font">
+			We have sent confirmation mail to your e-mail:
+		</div>
+		<div class="description-box email id-email">
+			<%= email %>
+		</div>
+		<div class="description-box">
+			Please follow the confirmation link <br/>
+			or enter the confirmation code from this mail below.
+		</div>
+		<div class="resend-btn-box buttons-container">
+			<button class="button button-resend id-button-resend">RESEND CONFIRMATION MAIL</button>
+		</div>
+		<div class="sign-row">
+			<div class="sign-row-error id-error-resend"></div>
+		</div>
+	</div>
+	<div class="content-container reset-content enter-confirmation-code">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="code">Confirmation code:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="code" type="text" value="<%= confirmationCode %>" class="id-code">
+			</div>
+			<span class="sign-row-error id-error-code"></span>
+		</div>
+		<div class="confirm-btn-box buttons-container">
+			<button class="button button-resend id-button-confirm">CONFIRM</button>
+		</div>
+	</div>
+</div>

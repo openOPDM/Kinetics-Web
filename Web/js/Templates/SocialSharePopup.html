@@ -1,0 +1,20 @@
+<h1>Share selected test via social</h1>
+
+<div class="social-container">
+	<div class="social-buttons">
+		<button id="id-share-fb" class="share-button facebook-button" title="Facebook"></button>
+		<button id="id-share-twitter" class="share-button twitter-button" title="Twitter"></button>
+		<button id="id-share-google-plus" class="share-button google-plus-button" title="Google+"></button>
+		<button id="id-share-email" class="share-button email-button" title="Email"></button>
+	</div>
+</div>
+
+<label class="generated-link">
+	Generated link for selected test
+	<input type="text" id="id-test-share-link" value="<%= 'http://' + window.location.hostname + '/kineticsweb/#shared-test/' + model.get('token') %>">
+</label>
+
+<div class="social-notification">
+	NOTE: Generated link can be invalidated later from your profile <strong>Sharing</strong> section.
+</div>
+<a class="button id-close">Close</a>

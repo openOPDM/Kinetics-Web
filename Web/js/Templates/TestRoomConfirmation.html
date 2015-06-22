@@ -1,0 +1,8 @@
+<% if (selected.length > 1) { %>
+<%= selected.length %> test results
+<% } else { %>
+Test result for <%= moment(selected[0].get("creationDate")).format("L LT") %>
+<% } %>
+will be permanently deleted and cannot be recovered.
+<br><br>
+Are you sure?

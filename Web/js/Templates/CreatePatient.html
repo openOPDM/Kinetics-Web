@@ -1,0 +1,71 @@
+<div class="user-container"></div>
+<h1>Create new patient</h1>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="registration">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="first-name"><%= Constants.customLabel('First Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="first-name" type="text" size="24" class="id-first-name">
+			</div>
+			<span class="sign-row-error id-error-first-name"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="second-name"><%= Constants.customLabel('Last Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="second-name" type="text" size="24" class="id-second-name">
+			</div>
+			<span class="sign-row-error id-error-second-name"></span>
+		</div>
+
+		<div class="sign-row  row-radio-group">
+			<div class="sign-row-label">
+				Gender:
+			</div>
+			<div class="sign-row-input">
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Male %>"
+							  class="id-gender-male">Male</label>
+				<label><input type="radio" name="gender" value="<%= Constants.Gender.Female %>"
+							  class="id-gender-female">Female</label>
+			</div>
+			<span class="sign-row-error id-error-gender"></span>
+		</div>
+
+
+		<div class="sign-row sign-row-long">
+			<div class="sign-row-label">
+				<label for="birthday">Birthday:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="birthday" type="text" maxlength="10" size="10" class="id-birthday" placeholder="MM/DD/YYYY"
+					   value="<%= model.get('birthdayFormatted') %>">
+			</div>
+			<span class="sign-row-error id-error-birthday"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="email">E-mail:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="email" type="text" size="24" class="id-email" placeholder="<%= Constants.customLabel('Not Applicable') %>">
+			</div>
+			<span class="sign-row-error id-error-email"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-error id-error-general">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="description-separator"></div>
+<div class="test-room bottom">
+	<button class="button button-34 id-create-patient">Create this patient</button>
+	<button class="button button-34 id-cancel">Cancel</button>
+</div>

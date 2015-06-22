@@ -1,0 +1,112 @@
+<%
+var title;
+var scoreCaption;
+var type = model.getType();
+switch (type) {
+case Constants.TestSessionType.Keyboard:
+title = "KEYBOARD TEST SESSION RAW DATA VISUALIZATION";
+scoreCaption = "Dexterity Composite Score";
+break;
+
+case Constants.TestSessionType.TUG:
+title = "TUG TEST SESSION DETAILS";
+scoreCaption = "Duration (sec)";
+break;
+
+case Constants.TestSessionType.PST:
+title = "POSTURAL SWAY TEST SESSION DETAILS";
+scoreCaption = "JERK";
+break;
+
+default:
+title = (type + "").toUpperCase() + " TEST SESSION DETAILS";
+scoreCaption = "Score";
+break;
+}
+
+var score = model.get("score");
+var precision = MathExtensions.getPrecision(score) + 4;
+%>
+<div class="user-container"></div>
+<div class="user-row">
+	<div class="user-row report id-user-test-room">
+	</div>
+</div>
+<div class="content-container report">
+
+	<% if (shared) { %>
+	<h2>Viewing test shared by: <%= model.get('userSecondName') %>, <%= model.get('userFirstName') %></h2>
+	<% } %>
+
+	<h2><%= title %></h2>
+	<div class="description-separator"></div>
+
+	<div class="list-row">
+		<div class="list-row-label">
+			Test Session Timestamp
+		</div>
+		<div class="list-row-text">
+			<%= moment(model.get("creationDate")).format("L LT") %>
+		</div>
+	</div>
+
+	<% if (!model.social) { %>
+	<div class="list-row">
+		<div class="list-row-label">
+			Client system info
+		</div>
+		<div class="list-row-text">
+			<%= clientSystemInfo %>
+		</div>
+	</div>
+	<% } %>
+	<div class="list-row">
+		<div class="list-row-label">
+			<%= scoreCaption %>
+		</div>
+		<div class="list-row-text">
+			<%= new Number(score).toFixed(precision) %>
+		</div>
+	</div>
+	<% if (type == Constants.TestSessionType.PST) {
+	var pstScores = model.parseRawData();
+	if (pstScores.AREA) {
+	var precision = MathExtensions.getPrecision(pstScores.AREA) + 4; %>
+	<div class="list-row">
+		<div class="list-row-label">
+			AREA
+		</div>
+		<div class="list-row-text">
+			<%= new Number(pstScores.AREA).toFixed(precision) %>
+		</div>
+	</div>
+	<% }
+	if (pstScores.RMS) {
+	var precision = MathExtensions.getPrecision(pstScores.RMS) + 4; %>
+	<div class="list-row">
+		<div class="list-row-label">
+			RMS
+		</div>
+		<div class="list-row-text">
+			<%= new Number(pstScores.RMS).toFixed(precision) %>
+		</div>
+	</div>
+	<% }
+	} %>
+	<div class="list-row">
+		<div class="list-row-label">
+			Valid
+		</div>
+		<div class="list-row-text">
+			<%= model.get("isValid") ? "yes" : "no" %>
+		</div>
+	</div>
+	<div class="list-row">
+		<div class="list-row-label">
+			Note
+		</div>
+		<div class="list-row-note">
+			<pre><%= model.get("notes") %></pre>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="sign-row">
+	<div class="list-row-label">
+		<label for="<%= name %>"><%= name %>:</label>
+	</div>
+	<div class="sign-row-input">
+		<input type="text" id="<%= name %>" name="<%= name %>" data-field-id="<%= id %>"
+		<%= required ? 'required' : '' %>
+		<% numeric ? 'type="number"' : '' %>
+		>
+		<% if(required){ %>
+		<span class="required">*</span>
+		<% } %>
+	</div>
+</div>

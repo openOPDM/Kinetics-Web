@@ -1,0 +1,26 @@
+<div class="user-container"></div>
+<h1>Create <%= Constants.customLabel('new Project') %></h1>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="registration">
+		<div class="sign-row">
+			<div class="sign-row-label">
+				<label for="project-name"><%= Constants.customLabel('Project Name') %>:</label>
+			</div>
+			<div class="sign-row-input">
+				<input id="project-name" type="text" size="24" class="id-project-name">
+			</div>
+			<span class="sign-row-error id-error-project-name"></span>
+		</div>
+
+		<div class="sign-row">
+			<div class="sign-row-error id-error-general">
+			</div>
+		</div>
+	</div>
+</div>
+<div class="description-separator"></div>
+<div class="test-room bottom">
+	<button type="button" class="button button-34 id-create-project">Create</button>
+	<button type="button" class="button button-34 id-cancel">Cancel</button>
+</div>

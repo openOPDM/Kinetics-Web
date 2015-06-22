@@ -1,0 +1,24 @@
+<div class="user-container"></div>
+<div class="title">
+	<%= model.testContext.get("properties").get("name") %>
+</div>
+<div class="description-box">
+	<%= model.testContext.get("properties").get("description") %>
+</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="info">
+		PLEASE GET READY
+	</div>
+	<div class="timer-label">
+		The Test will begin in
+	</div>
+	<div class="timer">
+	</div>
+	<div class="timer-seconds">
+		second<span class="plural-ends">s</span>
+	</div>
+</div>
+<div class="buttons-container buttons-1">
+	<button class="button id-button-stop button-red">Stop <i class="icon-stop"></i></button>
+</div>

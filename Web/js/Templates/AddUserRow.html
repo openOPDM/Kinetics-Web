@@ -1,0 +1,17 @@
+<div class="result-row">
+	<div class="result-col test-taken id-name">
+		<%= model.get("firstName") %> <%= model.get("secondName") %>
+	</div>
+	<div class="result-col test-detail id-detail">
+		<% if (model.get("roles").length) { %>
+		<%= model.get("roles")[0].name %>
+		<% } %>
+	</div>
+	<div class="result-col user-email id-email">
+		<%= model.get("email") %>
+	</div>
+	<div class="result-col test-detail">
+		<button class="button button-detail id-add-user" data-id="<%= model.get('id') %>">ADD</button>
+	</div>
+</div>
+

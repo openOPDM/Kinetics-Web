@@ -1,0 +1,57 @@
+<div class="user-container"></div>
+<div class="content-container">
+	<h1>Managing <%= Constants.customLabel('project') %>:
+	<select class="id-project-selector">
+		<% _.each(projects, function (project) { %>
+		<option value="<%= project.id %>"  <%= project.id == currentProject ? 'selected' : '' %>><%= project.name %></option>
+		<% }); %>
+	</select>
+	</h1>
+
+</div>
+<% if (newProject) { %>
+<div class="notification">Remember to add at least some users to your newly created project.</div>
+<% } %>
+
+<div class="save-or-reset">
+
+	<div class="addUserContainer">
+		<button type="button" class="button id-button-add-users button-20">Add users</button>
+		<button type="button" class="button id-button-create-user button-20">Create user</button>
+	</div>
+
+	<button type="button" class="button id-reset button-20">Reset</button>
+	<button type="button" class="button id-save-changes button-20">Remove selected</button>
+</div>
+
+<table class="result-table">
+	<tr>
+		<th class="test-taken">
+			Name
+		</th>
+		<th class="user-email">
+			E-mail
+		</th>
+		<th class="test-role user-role">
+			Role
+		</th>
+		<th class="test-status">
+			Status
+		</th>
+		<th class="test-detail">
+			Remove
+		</th>
+	</tr>
+</table>
+<div class="result-row id-no-results">
+	<p>
+		There are no users
+	</p>
+</div>
+
+<div class="save-or-reset">
+	<button type="button" class="button id-reset button-20">Reset</button>
+	<button type="button" class="button id-save-changes button-20">Remove selected</button>
+</div>
+
+<div class="description-separator"></div>

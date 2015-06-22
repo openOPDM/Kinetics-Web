@@ -1,0 +1,15 @@
+{
+	"appDir": "../Web",
+	"dir": "../tmp/Web",
+	"baseUrl": "js",
+	"optimize": "uglify2",
+	"mainConfigFile": "../Web/js/main.js",
+	"paths": {
+		"recaptcha":"empty:"
+	},
+	"modules": [
+		{
+			"name": "main"
+		}
+	]
+}

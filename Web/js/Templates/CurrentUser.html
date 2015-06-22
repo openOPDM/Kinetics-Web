@@ -1,0 +1,20 @@
+<div class="username-text">
+	<% if (model.currentUser()) { %>
+	<% if (!analystMode) { %>
+	<%= model.currentUser().get("secondName") %>, <%= model.currentUser().get("firstName") %>
+	<% } else { %>
+	<select class="id-username">
+		<option value="<%= model.get('id') %>">
+			<%= model.currentUser().get("secondName") %>,
+			<%= model.currentUser().get("firstName") %>
+		</option>
+		<% if (patients) {%>
+		<% _.each(patients.user, function(patient) { %>
+		<option value="<%= patient.id %>"><%= patient.secondName %>, <%= patient.firstName %>
+		</option>
+		<% }); %>
+		<% } %>
+	</select>
+	<% } %>
+	<% } %>
+</div>

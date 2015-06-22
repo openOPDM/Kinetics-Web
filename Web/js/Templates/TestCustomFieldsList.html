@@ -1,0 +1,17 @@
+<div class="sign-row">
+	<div class="list-row-label">
+		<label for="<%= name %>"><%= name %>:</label>
+	</div>
+	<div class="sign-row-input">
+		<select data-field-id="<%= id %>" name="<%= name %>" id="<%= name %>" <%= required ? 'required="true"' : '' %>>
+
+		<% _.each(list, function(item) { %>
+		<option value="<%= item %>"><%= item %></option>
+		<% }); %>
+
+		</select>
+		<% if(required){ %>
+		<span class="required">*</span>
+		<% } %>
+	</div>
+</div>

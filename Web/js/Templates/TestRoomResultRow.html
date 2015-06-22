@@ -1,0 +1,35 @@
+<% if (!readOnly) { %>
+<div class="result-col test-checkbox">
+	<div class="tick"></div>
+</div>
+<% } %>
+<div class="result-col test-date">
+	<%= moment(model.get("creationDate")).format("L LT") %>
+</div>
+<div class="result-col test-taken">
+	<%= model.getTestTaken() %>
+</div>
+<div class="result-col test-score">
+	<%= (+model.get("score")).toFixed(2) %>
+</div>
+<div class="result-col test-valid test-valid-ro id-valid">
+	<div class="tick"></div>
+</div>
+<% if (ownRoom) { %>
+<% if (isAvanir) { %>
+<div class="result-col test-detail"></div>
+<% } %>
+<div class="result-col test-detail">
+	<button class="button button-detail id-button-detail">DETAIL</button>
+</div>
+<% if (!isAvanir) { %>
+<div class="result-col test-detail">
+	<button class="button button-detail id-button-share">SHARE</button>
+</div>
+<% } %>
+<% } else { %>
+<div class="result-col test-detail"></div>
+<div class="result-col test-detail">
+	<button class="button button-detail id-button-detail">DETAIL</button>
+</div>
+<% } %>

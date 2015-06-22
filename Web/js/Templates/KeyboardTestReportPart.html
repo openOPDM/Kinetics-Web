@@ -1,0 +1,14 @@
+<div class="description-box big-font">
+	<%= model.getTestName() %>.
+	<% switch(model.get("state")) {
+	case Constants.TestResultState.Canceled: %> Canceled <% break;
+	case Constants.TestResultState.Skipped: %> Skipped <% break;
+	case Constants.TestResultState.Passed: %>
+	<%= (new Number(model.get("score"))).toFixed(2) %> keys/second
+	<% break;
+	default: %> Not passed <% break;
+	} %>
+</div>
+<div class="description-box graph-container">
+	<div class="graph-placeholder"></div>
+</div>

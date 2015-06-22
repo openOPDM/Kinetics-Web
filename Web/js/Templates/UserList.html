@@ -1,0 +1,77 @@
+<div class="user-container"></div>
+<div class="content-container search">
+	<% if (siteAdminMode) { %>
+	<div class="addUserContainer">
+		<button type="button" class="button id-button-create-user button-20">Create user</button>
+	</div>
+	<% } %>
+
+
+	<div class="sign-row">
+		<form id="search-form">
+			<div class="sign-row-input">
+				<input type="text" size="24" class="id-search-text">
+			</div>
+			<div class="sign-row-input">
+				<div class="result-col user-list-search">
+					<button type="submit" class="button button-detail" id="button-find">FIND</button>
+				</div>
+				<div class="result-col user-list-show-all">
+					<button type="button" class="button button-detail" id="button-show-all">SHOW ALL</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<table class="result-table">
+	<tr>
+		<th class="test-taken">
+			Name
+			<i class="icon-sort-by-alphabet sort-name sort-asc hidden"></i>
+			<i class="icon-sort-by-alphabet-alt sort-name sort-desc"></i>
+		</th>
+		<th class="user-email">
+			E-mail
+			<i class="icon-sort-by-alphabet sort-email sort-asc"></i>
+			<i class="icon-sort-by-alphabet-alt sort-email sort-desc"></i>
+		</th>
+		<th class="test-role user-role">
+			Role
+			<i class="icon-sort-by-alphabet sort-role sort-asc"></i>
+			<i class="icon-sort-by-alphabet-alt sort-role sort-desc"></i>
+		</th>
+		<th class="test-status">
+			Status
+			<i class="icon-sort-by-alphabet sort-status sort-asc"></i>
+			<i class="icon-sort-by-alphabet-alt sort-status sort-desc"></i>
+		</th>
+		<th class="test-detail">
+			<% if (siteAdminMode && showProjects) { %>
+			<%= Constants.customLabel('Project') %>
+			<i class="icon-sort-by-alphabet sort-project sort-asc"></i>
+			<i class="icon-sort-by-alphabet-alt sort-project sort-desc"></i>
+			<% } %>
+		</th>
+		<th></th>
+	</tr>
+</table>
+<div class="result-row id-no-results">
+	<p>
+		There are no users
+	</p>
+</div>
+
+<div class="manageProjectsContainer"></div>
+<div class="description-separator"></div>
+<div class="test-room bottom">
+	<% if (!siteAdminMode) { %>
+	<button class="button button-34 id-button-test-custom-fields">Manage Custom Fields</button>
+	<% } %>
+</div>
+<div class="dialog-waiting-user">
+	It seems that this user didn't activate his account yet.<br>
+	Resend invitational email?
+	<a href="#" class="resend">Resend</a>
+
+</div>

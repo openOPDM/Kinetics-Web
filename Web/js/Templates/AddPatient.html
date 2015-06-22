@@ -1,0 +1,56 @@
+<div class="user-container"></div>
+<h1>Search for existing patient</h1>
+<div class="description-separator"></div>
+<div class="content-container clearfix">
+
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<label for="searchName"><%= Constants.customLabel('by name') %></label>
+		</div>
+		<div class="sign-row-input">
+			<input type="text" id="searchName" class="id-search-name">
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<label for="searchEmail">by email</label>
+		</div>
+		<div class="sign-row-input">
+			<input type="text" id="searchEmail" class="id-search-email">
+		</div>
+	</div>
+	<button class="button button-34 id-search">Search</button>
+
+</div>
+
+<div class="result-table">
+	<div class="result-header-row">
+		<div class="result-row">
+			<div class="result-col test-taken">
+				<%= Constants.customLabel('NAME') %>
+			</div>
+			<div class="result-col test-detail">
+				AGE
+			</div>
+			<div class="result-col user-email">
+				E-mail
+			</div>
+			<div class="result-col test-detail">
+			</div>
+		</div>
+	</div>
+	<div class="result-row id-no-results">
+		<p>
+			No results yet
+		</p>
+	</div>
+</div>
+
+<div class="description-separator"></div>
+<div class="bottom">
+
+	or
+	<button class="button button-34 id-create-patient">Add new patient</button>
+	instead
+
+</div>

@@ -1,0 +1,66 @@
+<div class="user-container"></div>
+<div class="title">
+	<%= model.testContext.get("properties").get("name") %>
+</div>
+<div class="description-box">
+	<%= model.testContext.get("properties").get("description") %>
+</div>
+<div class="description-separator"></div>
+<div class="content-container">
+	<div class="video-container">
+		<video width="320" height="240" controls class="id-video">
+			<%
+			var properties = model.testContext.get("properties");
+			var testType = properties.get("testType");
+			var testHand = properties.get("testHand");
+			switch (testType) {
+			case Constants.TestType.NM:
+			switch (testHand) {
+
+			case Constants.TestHand.Left: %>
+			<% if (!$.browser.mozilla) { %>
+			<source src="video/nm_left.mp4" type="video/mp4">
+			<% } %>
+			<source src="video/nm_left.ogg" type="video/ogg">
+			<% break;
+
+			case Constants.TestHand.Right: %>
+			<% if (!$.browser.mozilla) { %>
+			<source src="video/nm_right.mp4" type="video/mp4">
+			<% } %>
+			<source src="video/nm_right.ogg" type="video/ogg">
+			<% break;
+			}
+			break;
+
+			case Constants.TestType.PQ:
+			switch (testHand) {
+
+			case Constants.TestHand.Left: %>
+			<% if (!$.browser.mozilla) { %>
+			<source src="video/pq_left.mp4" type="video/mp4">
+			<% } %>
+			<source src="video/pq_left.ogg" type="video/ogg">
+			<% break;
+
+			case Constants.TestHand.Right: %>
+			<% if (!$.browser.mozilla) { %>
+			<source src="video/pq_right.mp4" type="video/mp4">
+			<% } %>
+			<source src="video/pq_right.ogg" type="video/ogg">
+			<% break;
+
+			}
+			break;
+			} %>
+			Your browser does not support the video tag.
+		</video>
+		<div class="video-loading"></div>
+	</div>
+</div>
+<div class="buttons-separator"></div>
+<div class="buttons-container buttons-3">
+	<button class="button id-button-back"><i class="icon-step-backward"></i> Back to previous<br>test</button>
+	<button class="button id-button-start button-green">Start <i class="icon-play"></i></button>
+	<button class="button id-button-next button-yellow">Skip this test <i class="icon-step-forward"></i></button>
+</div>

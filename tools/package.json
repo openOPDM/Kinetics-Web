@@ -1,0 +1,16 @@
+{
+	"author": "",
+	"name": "kinetics-build",
+	"description": "Build script for kinetics project",
+	"version": "0.0.1",
+	"main": "build.js",
+	"engines": {
+		"node": ">=0.10.6"
+	},
+	"dependencies": {
+		"wrench": "*",
+		"adm-zip": "*",
+		"requirejs": "*",
+		"cli": "*"
+	}
+}

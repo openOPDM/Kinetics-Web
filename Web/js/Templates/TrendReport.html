@@ -1,0 +1,40 @@
+<div class="user-container"></div>
+<div class="title">
+	TOTAL SCORE TREND
+</div>
+<% if (readOnly) { %>
+	<a class="button button-34 id-button-shared-back">Back to shared test room</a>
+<% } %>
+<div class="content-container trend-report id-header-container">
+</div>
+<div class="description-separator"></div>
+<div class="content-text trend-report">
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<label for="from">From:</label>
+		</div>
+		<div class="sign-row-input">
+			<input id="from" type="text" size="24" class="id-from">
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<label for="to">To:</label>
+		</div>
+		<div class="sign-row-input">
+			<input id="to" type="text" size="24" class="id-to">
+		</div>
+	</div>
+	<div class="sign-row">
+		<div class="sign-row-label">
+			<label for="type">Test Name:</label>
+		</div>
+		<div class="sign-row-input">
+			<select id="type" class="id-type">
+			</select>
+		</div>
+	</div>
+	<div class="description-box graph-container">
+		<div class="id-trend-graph graph-placeholder"></div>
+	</div>
+</div>

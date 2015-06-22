@@ -1,0 +1,32 @@
+.idea/workspace.xml
+Web/.idea/workspace.xml
+Web/*.war
+
+#Maven ignore files
+target
+
+#Eclispe ignore files
+*.project
+*.classpath
+.settings
+
+#Idea
+*.ipr
+*.iml
+*.iws
+*.ids
+
+#OS X
+.DS_Store
+
+#STS
+*.springBeans
+
+Debug
+Release
+build
+tools/.oldversion
+tmp
+/.idea/*
+/Web/.idea/*
+

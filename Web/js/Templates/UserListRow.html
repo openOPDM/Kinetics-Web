@@ -1,0 +1,29 @@
+<td>
+	<%= model.get("firstName") %> <%= model.get("secondName") %>
+</td>
+<td>
+	<%= model.get("email") %>
+</td>
+<td>
+	<%= model.get("roles").length ? model.get("roles")[0].name : '' %>
+</td>
+<td title="Click to <%= model.get('status') === Constants.UserStatus.Waiting ? 'get more info' : 'disable or activate users. Disabled users cannot login to system' %>" class="id-status">
+	<span><%= (Constants.UserStatusCaptions[model.get("status") || ""] || "").toUpperCase() %></span>
+</td>
+
+<td class="result-col test-detail rel id-project">
+	<% if (model.get('roles').length && model.get('roles')[0].name.toLowerCase() != Constants.UserRole.SiteAdmin && showProjects){
+	var userProjects = _.pluck(model.get("project"), 'name'),
+	shownProjects = userProjects.length ? userProjects.slice(0,3).join(', ') : 'No assigned ' + Constants.customLabel('projects')
+	%>
+	<% if  (userProjects.length > 3){%>
+	<div title="<%=userProjects.join(', ')%>"><%= shownProjects + '...' %></div>
+	<% } else { %>
+	<div><%= shownProjects %></div>
+	<% } %>
+	<span class="editProject icon-pencil id-manage-project" title="Click to manage <%= Constants.customLabel('projects') %>"></span>
+	<% } %>
+</td>
+<td class="test-detail">
+	<button class="button button-detail id-button-detail">DETAIL</button>
+</td>
