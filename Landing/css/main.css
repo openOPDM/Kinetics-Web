@@ -35,7 +35,7 @@ h1 {
 }
 
 .logo {
-	width: 330px;
+	/*width: 330px;*/
 	height: 100%;
 	float: left;
 	background: url(../images/logo_beta.png) 25px 12px no-repeat;
@@ -465,6 +465,17 @@ a.button {
 	color: #00a3c6;
 	font-size: 19px;
 	margin: 0;
+}
+
+.landing-presentation .license {
+	padding: 52px 0 0 310px;
+	font-size: 12px;
+	text-align: left;
+	color: #00a3c6;
+}
+
+.landing-presentation .license a {
+	color: #00a3c6;
 }
 
 h1+.highlight {
